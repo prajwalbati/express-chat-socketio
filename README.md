@@ -3,6 +3,8 @@ This is a simple chat app created using node.js and socket.io
 
 Link to tutorial I followed: https://medium.com/@noufel.gouirhate/build-a-simple-chat-app-with-node-js-and-socket-io-ea716c093088
 
+To run the application: npm run start
+
 
 TODO:
 1. A registration system with the possibility to chat in a one-to-one chatroom
