@@ -28,6 +28,7 @@ io.on('connection', (socket)=>{
     // listen on change_username
     socket.on("change_username", (data) => {
         socket.username = data.username
+        io.sockets.emit("new_user_enters", {username:socket.username})
     })
 
     // listen on send_message

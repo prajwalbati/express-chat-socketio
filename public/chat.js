@@ -15,6 +15,10 @@ $(function() {
         socket.emit("change_username", {username:username.val()})
     })
 
+    socket.on("new_user_enters", (data)=>{
+        chatroom.append("<p class='userEnterMessage'>"+data.username+" entered chatroom. Welcome "+data.username+"</p>")
+    })
+
     // emit message
     send_message.click(function() {
         socket.emit("new_message", {message:message.val()})
@@ -22,6 +26,8 @@ $(function() {
 
     //listen to message
     socket.on("new_message", (data)=> {
+        message.val("")
+        feedback.html("");
         chatroom.append("<p class='message'>"+data.username+" : "+data.message+"</p>")
     })
 
