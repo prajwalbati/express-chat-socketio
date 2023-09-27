@@ -1,19 +1,21 @@
 $(function() {
     // make connection
-    // var socket = io.connect('http://localhost:3000');
-    let socket = io.connect("https://express-chat-socketio.onrender.com");
-
+    const socketURL = $("#socketURL").val();
+    var socket = io.connect(socketURL);
+    // let socket = io.connect("https://express-chat-socketio.onrender.com");
     //buttons and inputs
     var message = $("#message")
     var username = $("#username")
     var send_message = $("#send_message")
     var send_username = $("#send_username")
-    var chatroom = $("#chatroom")
+    var chatroom = $("#chats")
     var feedback = $("#feedback")
 
     //emit a username
     send_username.click(function() {
-        socket.emit("change_username", {username:username.val()})
+        socket.emit("change_username", {username:username.val()}, () => {
+            chatroom.append("<p class='userEnterMessage'>You entered chatroom. Welcome "+username.val()+"</p>")
+        })
     })
 
     socket.on("new_user_enters", (data)=>{
@@ -21,20 +23,24 @@ $(function() {
     })
 
     // emit message
-    send_message.click(function() {
-        socket.emit("new_message", {message:message.val()})
+    send_message.click(function(e) {
+        e.preventDefault();
+        socket.emit("new_message", {message:message.val()}, () => {
+            // ack
+        })
+        chatroom.append("<p class='message'>"+username.val()+" : "+message.val()+"</p>")
+        message.val("")
     })
 
     //listen to message
     socket.on("new_message", (data)=> {
-        message.val("")
         feedback.html("");
         chatroom.append("<p class='message'>"+data.username+" : "+data.message+"</p>")
     })
 
     // listen to typing
     message.bind("keypress",() => {
-        socket.emit("typing")
+        socket.emit("typing");
     })
 
     // listen on typing

@@ -4,9 +4,9 @@
     <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <title>Simple Chat App</title>
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js">
+    </script><script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -15,6 +15,7 @@
     </header>
 
     <div class="chatBody">
+      <input id="socketURL" type="hidden" value="<%= process.env.SOCKET_URL %>">
       <section id="setUsername">
         <div id="change_username">
           <input id="username" type="text" />
@@ -22,11 +23,14 @@
         </div>
       </section>
       <section id="chatroom">
+        <section id="chats"></section>
         <section id="feedback"></section>
       </section>
       <section id="input_zone">
-        <input id="message" class="vertical-align" type="text" />
-        <button id="send_message" class="vertical-align" type="button">Send</button>
+        <form>
+          <input id="message" class="vertical-align" type="text" />
+          <button id="send_message" class="vertical-align" type="submit">Send</button>
+        </form>
       </section>
     </div>
 
