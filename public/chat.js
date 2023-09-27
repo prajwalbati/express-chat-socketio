@@ -1,6 +1,7 @@
 $(function() {
     // make connection
-    var socket = io.connect('http://localhost:3000')
+    // var socket = io.connect('http://localhost:3000');
+    let socket = io.connect("https://express-chat-socketio.onrender.com");
 
     //buttons and inputs
     var message = $("#message")
