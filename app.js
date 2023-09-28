@@ -21,7 +21,6 @@ const io = require("socket.io")(server)
 
 //listen on every connection
 io.on('connection', (socket)=>{
-    //default username
 
     // listen on change_username
     socket.on("change_username", (data, callback) => {
