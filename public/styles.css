@@ -24,9 +24,31 @@ header {
     margin: 20px 0;
 }
 
+.text-center {
+    text-align: center;
+}
+
 h1 {
     font-family: 'Comfortaa', sans-serif;
     margin: 0px;
+}
+
+.hidden {
+    display: none;
+}
+
+#connectMessage {
+    margin: 35px 0px;
+    padding: 10px;
+    background: #48aa12;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.systemMessage {
+    font-style: italic;
+    text-align: center;
 }
 
 .chatBody {
@@ -35,18 +57,16 @@ h1 {
     margin : 0 auto;
 }
 
-div#change_username, section#input_zone {
-    /*border: 5px outset #8258FA;*/
-}
-
 div#change_username {
     margin-bottom:10px;
 }
 
 section#chatroom {
-    border: 2px inset #5f5775;
+    border: 2px outset #a29bb7;
     height: 70vh;
     overflow: auto;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 section#input_zone {
@@ -72,19 +92,22 @@ button#send_message {
     width: 18%;
 }
 
+#chats p.self {
+    text-align: right;
+}
+
 p.message {
-    margin: 0px;
+    display: inline-block;
+    margin: 10px 0px;
+    border-radius: 5px;
     width: 100%;
-    height: 40px;
-    font-size: 2vh;
+    font-size: 15px;
     font-family: 'Comfortaa', sans-serif;
-    padding: 1vh;
+    padding: 10px;
+    background-color: #d0e2e7;
 }
 
-.message:nth-child(even) {
-    background-color: #81DAF5;
-}
-
-.message:nth-child(odd) {
-    background-color: #81BEF7;
+p.selfSend {
+    text-align: right;
+    background-color: #cd85ec;
 }

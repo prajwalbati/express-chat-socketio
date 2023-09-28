@@ -11,22 +11,28 @@
 
   <body>
     <header>
-      <h1>Super Chat</h1>
+      <h1>PB Chat Application</h1>
     </header>
 
     <div class="chatBody">
       <input id="socketURL" type="hidden" value="<%= process.env.SOCKET_URL %>">
       <section id="setUsername">
-        <div id="change_username">
+        <div id="change_username" class="text-center">
           <input id="username" type="text" />
           <button id="send_username" type="button">Set username</button>
         </div>
+        <div id="usernameLabel" class="text-center hidden">
+          <label></label>
+        </div>
       </section>
-      <section id="chatroom">
+      <section id="connectMessage" class="text-center">
+        <div>Set username to start chatting</div>
+      </section>
+      <section id="chatroom" class="hidden">
         <section id="chats"></section>
         <section id="feedback"></section>
       </section>
-      <section id="input_zone">
+      <section id="input_zone" class="hidden">
         <form>
           <input id="message" class="vertical-align" type="text" />
           <button id="send_message" class="vertical-align" type="submit">Send</button>

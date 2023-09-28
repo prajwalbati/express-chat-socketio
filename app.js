@@ -22,24 +22,21 @@ const io = require("socket.io")(server)
 //listen on every connection
 io.on('connection', (socket)=>{
     //default username
-    socket.username = "Anonymous"
 
     // listen on change_username
     socket.on("change_username", (data, callback) => {
-        socket.username = data.username
-        socket.broadcast.emit("new_user_enters", {username:socket.username});
+        socket.broadcast.emit("new_user_enters", {username:data.username});
         callback();
     })
 
     // listen on send_message
     socket.on("new_message", (data, callback)=> {
-        //broadcast the new message
-        socket.broadcast.emit("new_message", {message:data.message, username:socket.username})
+        socket.broadcast.emit("new_message", {message:data.message, username:data.username})
         callback();
     })
 
     // listen on typing
     socket.on("typing", (data)=> {
-        socket.broadcast.emit("typing", {username:socket.username})
+        socket.broadcast.emit("typing", {username:data.username})
     })
 })

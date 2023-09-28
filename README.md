@@ -1,13 +1,13 @@
 # Simple Chat App
 This is a simple chat app created using node.js and socket.io
 
-Link to tutorial I followed: https://medium.com/@noufel.gouirhate/build-a-simple-chat-app-with-node-js-and-socket-io-ea716c093088
+To run the application in development: `npm run dev`
 
-To run the application: npm run dev
+To run the application in production:  `npm run prod`
 
 
-TODO:
+### TODO:
 1. A registration system with the possibility to chat in a one-to-one chatroom
 2. History of all the conversations
 3. Online/offline labels
-4. Copy every features of WhatsApp !
+4. Copy every features of WhatsApp
