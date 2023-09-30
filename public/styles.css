@@ -111,3 +111,12 @@ p.selfSend {
     text-align: right;
     background-color: #cd85ec;
 }
+
+#usernameLabel {
+    margin-bottom: 10px;
+}
+
+#usernameLabel label {
+    font-size: 18px;
+    font-weight: 600;
+}
