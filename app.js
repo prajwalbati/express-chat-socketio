@@ -10,11 +10,23 @@ app.use(express.static('public'))
 
 //routes
 app.get("/", (req, res) => {
-    res.render("index")
-})
+    res.render("index");
+});
+
+app.get("/chat", (req, res) => {
+    res.render("chat");
+});
+
+app.get("/single", (req, res) => {
+    res.render("single");
+});
 
 //listen on port 3000
-server = app.listen(3000)
+const PORT = process.env.PORT || 3000;
+server = app.listen(PORT, () => {
+    console.log(`Server listening in the port ${PORT}.`);
+    console.log(`Server running in URL: ${process.env.SOCKET_URL}`);
+});
 
 //socket.io instantiation
 const io = require("socket.io")(server)
