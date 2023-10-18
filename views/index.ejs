@@ -2,40 +2,40 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.10/tailwind.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
     <title>Simple Chat App</title>
   </head>
 
-  <body>
+  <body class="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-100 text-gray-800 p-10">
     <header>
-      <h1>PB Chat Application</h1>
+      <h1 class="text-xl">PB Chat Application</h1>
     </header>
 
-    <div class="chatBody">
-      <input id="socketURL" type="hidden" value="<%= process.env.SOCKET_URL %>">
-      <section id="setUsername">
-        <div id="change_username" class="text-center">
-          <input id="username" type="text" />
-          <button id="send_username" type="button">Set username</button>
-        </div>
-        <div id="usernameLabel" class="text-center hidden">
-          <label></label>
-        </div>
-      </section>
-      <section id="connectMessage" class="text-center">
-        <div>Set username to start chatting</div>
-      </section>
-      <section id="chatroom" class="hidden">
-        <section id="chats"></section>
-        <section id="feedback"></section>
-      </section>
-      <section id="input_zone" class="hidden">
-        <form>
-          <input id="message" class="vertical-align" type="text" />
-          <button id="send_message" class="vertical-align" type="submit">Send</button>
-        </form>
-      </section>
+    <input id="socketURL" type="hidden" value="<%= process.env.SOCKET_URL %>">
+    <section id="setUsername">
+      <div id="change_username" class="text-center">
+        <input id="username" type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" />
+        <button id="send_username" type="button" class="bg-sky-500 hover:bg-sky-700">Set username</button>
+      </div>
+      <div id="usernameLabel" class="text-center hidden">
+        <label></label>
+      </div>
+    </section>
+    <section id="connectMessage" class="text-center">
+      <div>Set username to start chatting</div>
+    </section>
+
+    <div class="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden hidden" id="chatroom">
+      <div class="flex flex-col flex-grow h-0 p-4 overflow-auto" id="chats">
+      </div>
+      <section id="feedback"></section>
+
+      <div class="bg-gray-300 p-4">
+        <input id="message" class="flex items-center h-10 w-full rounded px-3 text-sm" type="text"
+          placeholder="Type your message…">
+        <button id="send_message" class="vertical-align" type="submit">Send</button>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>

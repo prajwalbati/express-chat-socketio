@@ -17,10 +17,6 @@ app.get("/chat", (req, res) => {
     res.render("chat");
 });
 
-app.get("/single", (req, res) => {
-    res.render("single");
-});
-
 //listen on port 3000
 const PORT = process.env.PORT || 3000;
 server = app.listen(PORT, () => {
