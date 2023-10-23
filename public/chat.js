@@ -10,7 +10,7 @@ $(function() {
     let feedback = $("#feedback");
 
     const scrollChat = () => {
-        $("#chatroom").scrollTop($("#chatroom").height());
+        $("#chats").scrollTop($("#chats").height());
     };
 
     //emit a username
