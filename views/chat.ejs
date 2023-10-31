@@ -1,31 +1,10 @@
-<!--
-Include Tailwind JIT CDN compiler
-More info: https://beyondco.de/blog/tailwind-jit-compiler-via-cdn
--->
 <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
 
-<!-- Specify a custom Tailwind configuration -->
-<script type="tailwind-config">
-{
-  theme: {
-    extend: {
-      colors: {
-        gray: colors.blueGray,
-      }
-    }
-  }
-}
-</script>
-
-<!-- Snippet -->
 <section class="flex flex-col justify-center antialiased bg-gray-50 text-gray-600 min-h-screen p-4">
     <div class="h-full">
-        <!-- Card -->
         <div class="relative mx-auto bg-white shadow-lg rounded-lg">
-            <!-- Card header -->
             <header class="pt-6 pb-4 px-5 border-b border-gray-200">
                 <div class="flex justify-between items-center mb-3">
-                    <!-- Image + name -->
                     <div class="flex items-center">
                         <a class="inline-flex items-start mr-3" href="#0">
                             <img class="rounded-full" src="https://res.cloudinary.com/dc6deairt/image/upload/v1638102932/user-48-01_nugblk.jpg" width="48" height="48" alt="Lauren Marsano" />
@@ -37,7 +16,6 @@ More info: https://beyondco.de/blog/tailwind-jit-compiler-via-cdn
                             <a class="block text-sm font-medium hover:text-indigo-500" href="#0">@lauren.mars</a>
                         </div>
                     </div>
-                    <!-- Settings button -->
                     <div class="relative inline-flex flex-shrink-0">
                         <button class="text-gray-400 hover:text-gray-500 rounded-full focus:ring-0 outline-none focus:outline-none">
                             <span class="sr-only">Settings</span>
@@ -48,10 +26,8 @@ More info: https://beyondco.de/blog/tailwind-jit-compiler-via-cdn
                     </div>
                 </div>
             </header>
-            <!-- Card body -->
             <div class="py-3 px-5">
                 <h3 class="text-xs font-semibold uppercase text-gray-400 mb-1">Chats</h3>
-                <!-- Chat list -->
                 <div class="divide-y divide-gray-200">
                     <button class="w-full text-left py-2 focus:outline-none focus-visible:bg-indigo-50">
                         <div class="flex items-center">
@@ -64,7 +40,6 @@ More info: https://beyondco.de/blog/tailwind-jit-compiler-via-cdn
                     </button>
                 </div>
             </div>
-            <!-- Bottom right button -->
             <button class="absolute bottom-5 right-5 inline-flex items-center text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-600 rounded-full text-center px-3 py-2 shadow-lg focus:outline-none focus-visible:ring-2">
                 <svg class="w-3 h-3 fill-current text-indigo-300 flex-shrink-0 mr-2" viewBox="0 0 12 12">
                     <path d="M11.866.146a.5.5 0 0 0-.437-.139c-.26.044-6.393 1.1-8.2 2.913a4.145 4.145 0 0 0-.617 5.062L.305 10.293a1 1 0 1 0 1.414 1.414L7.426 6l-2 3.923c.242.048.487.074.733.077a4.122 4.122 0 0 0 2.933-1.215c1.81-1.809 2.87-7.94 2.913-8.2a.5.5 0 0 0-.139-.439Z" />
