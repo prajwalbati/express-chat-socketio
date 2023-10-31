@@ -18,14 +18,21 @@ $(function() {
     setUsernameBtn.click(function() {
         let usernameValue = username.val();
         if (usernameValue) {
-            $("#usernameLabel, #chatroom, #input_zone").removeClass("hidden");
-            $("#usernameLabel label").text(usernameValue);
+            $("#chatList").removeClass("hidden");
             $("#change_username").addClass("hidden");
-            socket.emit("change_username", {username:usernameValue}, () => {
-                chatroom.append("<p class='systemMessage text-center italic'>You entered chatroom. Welcome "+usernameValue+"</p>")
-                scrollChat();
-            });
+            $("#usernameLabel label").text(usernameValue);
         }
+    });
+
+    $(".chatListItem").on("click", function () {
+        $("#usernameLabel, #chatroom, #input_zone").removeClass("hidden");
+        $("#chatList").addClass("hidden");
+
+        let usernameValue = username.val();
+        socket.emit("change_username", {username:usernameValue}, () => {
+            chatroom.append("<p class='systemMessage text-center italic'>You entered chatroom. Welcome "+usernameValue+"</p>")
+            scrollChat();
+        });
     });
 
     socket.on("new_user_enters", (data)=>{

@@ -13,14 +13,13 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
-app.get("/chat", (req, res) => {
-    res.render("chat");
+app.get("*", (req, res) => {
+    res.render("index");
 });
 
 //listen on port 3000
 const PORT = process.env.PORT || 3000;
 server = app.listen(PORT, () => {
-    console.log(`Server listening in the port ${PORT}.`);
     console.log(`Server running in URL: ${process.env.SOCKET_URL}`);
 });
 
