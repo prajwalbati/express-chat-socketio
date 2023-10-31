@@ -15,15 +15,12 @@
     <input id="socketURL" type="hidden" value="<%= process.env.SOCKET_URL %>">
     <section id="setUsername">
       <div id="change_username" class="text-center">
-        <input id="username" type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" />
-        <button id="send_username" type="button" class="bg-sky-500 hover:bg-sky-700">Set username</button>
+        <input id="username" type="text" class="mt-1 px-3 py-2 bg-white border border-slate-300" placeholder="Set Username" />
+        <button id="setUsernameBtn" type="button" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Set username</button>
       </div>
-      <div id="usernameLabel" class="text-center hidden">
+      <div id="usernameLabel" class="font-bold text-center hidden">
         <label></label>
       </div>
-    </section>
-    <section id="connectMessage" class="text-center">
-      <div>Set username to start chatting</div>
     </section>
 
     <div class="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden hidden" id="chatroom">
@@ -32,9 +29,14 @@
       <section id="feedback"></section>
 
       <div class="bg-gray-300 p-4">
-        <input id="message" class="flex items-center h-10 w-full rounded px-3 text-sm" type="text"
-          placeholder="Type your message…">
-        <button id="send_message" class="vertical-align" type="submit">Send</button>
+        <form id="sendMessageForm">
+          <input id="message" class="flex items-center h-10 w-full rounded px-3 text-sm" type="text"
+            placeholder="Type your message…">
+          <div class="sendMessageDiv text-right">
+            <button id="sendMessageBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2"
+              type="submit">Send</button>
+          </div>
+        </form>
       </div>
     </div>
 
