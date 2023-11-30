@@ -1,12 +1,13 @@
-const express = require('express')
 require('dotenv').config();
-const app = express()
+
+const express = require('express');
+const app = express();
 
 //set the template engine ejs
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 //middlewares
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 //routes
 app.get("/", (req, res) => {
@@ -27,22 +28,22 @@ server = app.listen(PORT, () => {
 const io = require("socket.io")(server)
 
 //listen on every connection
-io.on('connection', (socket)=>{
+io.on('connection', (socket) => {
 
     // listen on change_username
     socket.on("change_username", (data, callback) => {
-        socket.broadcast.emit("new_user_enters", {username:data.username});
+        socket.broadcast.emit("new_user_enters", { username: data.username });
         callback();
     })
 
     // listen on send_message
-    socket.on("new_message", (data, callback)=> {
-        socket.broadcast.emit("new_message", {message:data.message, username:data.username})
+    socket.on("new_message", (data, callback) => {
+        socket.broadcast.emit("new_message", { message: data.message, username: data.username })
         callback();
     })
 
     // listen on typing
-    socket.on("typing", (data)=> {
-        socket.broadcast.emit("typing", {username:data.username})
+    socket.on("typing", (data) => {
+        socket.broadcast.emit("typing", { username: data.username })
     })
-})
+});

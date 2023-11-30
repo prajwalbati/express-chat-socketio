@@ -3,7 +3,13 @@ This is a simple chat app created using node.js and socket.io
 
 To run the application in development: `npm run dev`
 
-To run the application in production:  `npm run prod`
+To run the application in production:  `npm run start`
+
+
+## To run in docker
+To build docker image: `docker build -t express-chat-socketio .`
+
+To run docker image in container: `docker run express-chat-socketio`
 
 
 ### TODO:
